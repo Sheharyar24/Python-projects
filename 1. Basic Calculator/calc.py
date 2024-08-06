@@ -46,12 +46,18 @@ while True:
 
     if question == "quit":
         break
-
-    question = question.split()
-    num1 = int(question[0])
-    num2 = int(question[2])
-    symbol  = question[1]
-
-    solve(symbol)
+    
+    try:
+        question = question.split()
+        num1 = int(question[0])
+        num2 = int(question[2])
+        symbol  = question[1]
+        solve(symbol)
+    except ValueError:
+        print("Cannot enter a string, try '2 + 2'\n")
+    except IndexError:
+        print("Please enter 2 numbers only!, eg. '1 + 1'\n ")
+    except ZeroDivisionError:
+        print("Cannot divide by zero!\n")
 
 print("Goodbye!")
