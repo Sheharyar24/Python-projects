@@ -31,31 +31,27 @@ def division(a, b):
 
 def solve(q):
     '''Used to do the operation'''
-    if q == 1:
+    if q == '+':
         print(addition(num1, num2))
-    elif q == 2:
+    elif q == '-':
         print(subtraction(num1, num2))
-    elif q == 3:
+    elif q == '*':
         print(multiplication(num1, num2))
-    elif q == 4:
-        print(division(num1, num2))    
+    elif q == '/':
+        print(division(num1, num2))
 
 
 while True:
-    menu()
     question = input("Enter the type of problem you wish to solve (or type 'quit' to exit): ")
 
     if question == "quit":
         break
 
-    question = int(question)
+    question = question.split()
+    num1 = int(question[0])
+    num2 = int(question[2])
+    symbol  = question[1]
 
-    if question > 4 or question < 1:
-        print("\nInvalid Input, try again")
-    else:
-        num1 = int(input("Enter the first number: "))
-        num2 = int(input("Enter the second number: "))
-
-    solve(question)
+    solve(symbol)
 
 print("Goodbye!")
